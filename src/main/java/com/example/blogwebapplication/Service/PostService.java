@@ -16,7 +16,7 @@ public class PostService {
         return postRepository.save(post);
     }
 
-    public Post findPostById(Long id) {
+    public Post getPostById(Long id) {
         return postRepository.findById(id).orElse(null);
     }
 
@@ -28,7 +28,7 @@ public class PostService {
         return postRepository.findAll();
     }
 
-    public Post updatePost(Post post) {
+    public Post updatePost(Long id, Post post) {
         Post existingPost = postRepository.findById(post.getId())
                 .orElseThrow(() -> new IllegalArgumentException("Пользователь с ID: " + post.getId() + " не найден."));
         existingPost.setTitle(post.getTitle());

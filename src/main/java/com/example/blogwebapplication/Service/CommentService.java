@@ -17,7 +17,7 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
-    public Comment findCommentById(Long id){
+    public Comment getCommentById(Long id){
         return commentRepository.findById(id).orElse(null);
     }
 

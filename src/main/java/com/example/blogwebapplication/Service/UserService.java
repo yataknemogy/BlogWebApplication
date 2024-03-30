@@ -16,23 +16,33 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User findUserById(Long id) {
+    public User getUserById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
-    public void deleteUser(Long id) {
+    public User deleteUser(Long id) {
         userRepository.deleteById(id);
+        return null;
     }
 
     public List<User> allUsers() {
         return userRepository.findAll();
     }
 
-    public User updateUser(User user) {
+    public User updateUser(Long id, User user) {
         User existingUser = userRepository.findById(user.getId())
                 .orElseThrow(() -> new IllegalArgumentException("Пользователь с ID: " + user.getId() + " не найден."));
         existingUser.setUsername(user.getUsername());
         existingUser.setEmail(user.getEmail());
         return userRepository.save(existingUser);
+    }
+
+    public void subscribe(User user, User targetUser) {
+        user.subscribe(targetUser);
+        userRepository.save(user);
+    }
+    public void unsubscribe(User user, User targerUser){
+        user.unsubscribe(targerUser);
+        userRepository.save(user);
     }
 }
