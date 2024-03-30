@@ -20,13 +20,23 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
     runtimeOnly 'org.postgresql:postgresql'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
     implementation 'io.freefair.gradle:lombok-plugin:8.6'
+
     implementation 'org.apache.logging.log4j:log4j-api:2.23.1'
     implementation 'org.apache.logging.log4j:log4j-core:2.23.1'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+/* ./gradlew bootJar приложение будет упаковано в исполняемый JAR файл. */
+bootJar {
+    archiveFileName = 'blog-app.jar' // Имя JAR файла
+    mainClass = 'com.example.blogwebapplication.BlogWebApplication' // Главный класс вашего приложения
 }

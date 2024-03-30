@@ -1,7 +1,7 @@
-package com.example.blogwebapplication.Controller;
+package com.example.blogwebapplication.controller;
 
-import com.example.blogwebapplication.Model.User;
-import com.example.blogwebapplication.Service.UserService;
+import com.example.blogwebapplication.model.User;
+import com.example.blogwebapplication.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
