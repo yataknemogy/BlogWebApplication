@@ -1,7 +1,7 @@
-package com.example.blogwebapplication.Controller;
+package com.example.blogwebapplication.controller;
 
-import com.example.blogwebapplication.Model.Comment;
-import com.example.blogwebapplication.Service.CommentService;
+import com.example.blogwebapplication.model.Comment;
+import com.example.blogwebapplication.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.example.blogwebapplication.Model;
+package com.example.blogwebapplication.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -33,12 +33,12 @@ public class User {
     )
     private Set<User> subscriptions = new HashSet<>();
 
-    public void subscribe(User user){
+    public void subscribe(User user) {
         subscriptions.add(user);
         user.getSubscriptions().add(this);
     }
 
-    public void unsubscribe(User user){
+    public void unsubscribe(User user) {
         subscriptions.remove(user);
         user.getSubscriptions().remove(this);
     }

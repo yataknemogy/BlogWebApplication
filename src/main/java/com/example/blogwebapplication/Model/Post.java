@@ -1,4 +1,4 @@
-package com.example.blogwebapplication.Model;
+package com.example.blogwebapplication.model;
 
 import lombok.Getter;
 import lombok.Setter;
