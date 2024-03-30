@@ -1,4 +1,4 @@
-package com.example.blogwebapplication.controller;
+package com.example.blogwebapplication.сontroller;
 
 import com.example.blogwebapplication.model.Post;
 import com.example.blogwebapplication.service.PostService;
