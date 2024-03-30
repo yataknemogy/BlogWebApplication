@@ -12,7 +12,7 @@ import java.util.List;
 public class PostService {
     private final PostRepository postRepository;
 
-    public Post creatPost(Post post) {
+    public Post createPost(Post post) {
         return postRepository.save(post);
     }
 
@@ -24,15 +24,15 @@ public class PostService {
         postRepository.deleteById(id);
     }
 
-    public List<Post>allPosts() {
+    public List<Post> allPosts() {
         return postRepository.findAll();
     }
 
-    public Post updateUser(Post post) {
+    public Post updatePost(Post post) {
         Post existingPost = postRepository.findById(post.getId())
-                .orElseThrow(() -> new IllegalArgumentException("Пост с ID: " + post.getId() + " не найден."));
+                .orElseThrow(() -> new IllegalArgumentException("Пользователь с ID: " + post.getId() + " не найден."));
         existingPost.setTitle(post.getTitle());
         existingPost.setContent(post.getContent());
-        return post.save(existingPost);
+        return postRepository.save(existingPost);
     }
 }
