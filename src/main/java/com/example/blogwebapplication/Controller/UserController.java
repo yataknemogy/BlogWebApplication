@@ -13,22 +13,22 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private UserService userService;
 
-    @PostMapping("/addUser")
+    @PostMapping("/add")
     public User addUser(@RequestBody User user){
         return userService.createUser(user);
     }
 
-    @DeleteMapping("/deleteUser/{id}")
+    @DeleteMapping("/delete/{id}")
     public User deleteUserById(@PathVariable Long id){
         return userService.deleteUser(id);
     }
 
-    @PutMapping("/updateUser/{id}")
+    @PutMapping("/update/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User updated){
         return userService.updateUser(id, updated);
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         User user = userService.getUserById(id);
         if (user != null) {
