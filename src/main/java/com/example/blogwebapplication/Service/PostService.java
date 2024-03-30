@@ -1,0 +1,38 @@
+package com.example.blogwebapplication.Service;
+
+import com.example.blogwebapplication.Model.Post;
+import com.example.blogwebapplication.Repository.PostRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@AllArgsConstructor
+public class PostService {
+    private final PostRepository postRepository;
+
+    public Post creatPost(Post post) {
+        return postRepository.save(post);
+    }
+
+    public Post findPostById(Long id) {
+        return postRepository.findById(id).orElse(null);
+    }
+
+    public void deletePost(Long id) {
+        postRepository.deleteById(id);
+    }
+
+    public List<Post>allPosts() {
+        return postRepository.findAll();
+    }
+
+    public Post updateUser(Post post) {
+        Post existingPost = postRepository.findById(post.getId())
+                .orElseThrow(() -> new IllegalArgumentException("Пост с ID: " + post.getId() + " не найден."));
+        existingPost.setTitle(post.getTitle());
+        existingPost.setContent(post.getContent());
+        return post.save(existingPost);
+    }
+}
