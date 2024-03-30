@@ -1,6 +1,7 @@
 package com.example.blogwebapplication.Service;
 
 import com.example.blogwebapplication.Model.Post;
+import com.example.blogwebapplication.Model.User;
 import com.example.blogwebapplication.Repository.PostRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,17 @@ public class PostService {
     private final PostRepository postRepository;
 
     public Post createPost(Post post) {
+        return postRepository.save(post);
+    }
+
+    public Post createPostWithUser(Post post, User user) {
+        if (user == null) {
+            throw new IllegalArgumentException("User cannot be null");
+        }
+
+        post.setUser(user); // Установка пользователя для поста
+
+        // Сохранение поста в репозитории
         return postRepository.save(post);
     }
 
