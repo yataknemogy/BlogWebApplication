@@ -24,10 +24,8 @@ class UserServiceTest {
 
         UserService userService = new UserService(userRepository);
 
-        // Act
         User result = userService.getUserById(userId);
 
-        // Assert
         assertEquals(user, result);
     }
 

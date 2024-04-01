@@ -24,10 +24,8 @@ class PostServiceTest {
 
         PostService postService = new PostService(postRepository);
 
-        // Act
         Post result = postService.getPostById(postId);
 
-        // Assert
         assertEquals(post, result);
     }
 

@@ -1,4 +1,4 @@
-package com.example.blogwebapplication.controller;
+package com.example.blogwebapplication.сontroller;
 
 import com.example.blogwebapplication.model.User;
 import com.example.blogwebapplication.service.UserService;
@@ -23,9 +23,14 @@ public class UserController {
         return userService.deleteUser(id);
     }
 
-    @PutMapping("/update/{id}")
+   /* @PutMapping("/update/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User updated){
         return userService.updateUser(id, updated);
+    } */
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?>updateUser(@PathVariable Long id, @RequestBody User updateUser){
+        User updatedUser = userService.updateUser(id, updateUser);
+        return ResponseEntity.ok(updatedUser);
     }
 
     @GetMapping("/{id}")

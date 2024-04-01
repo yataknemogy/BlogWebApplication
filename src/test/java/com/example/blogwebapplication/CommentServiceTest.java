@@ -24,10 +24,8 @@ class CommentServiceTest {
 
         CommentService commentService = new CommentService(commentRepository);
 
-        // Act
         Comment result = commentService.getCommentById(commentId);
 
-        // Assert
         assertEquals(comment, result);
     }
 
