@@ -10,31 +10,33 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CommentService {
-    private final CommentRepository commentRepository;
 
-    public Comment createComment(Comment comment) {
-        return commentRepository.save(comment);
-    }
+  private final CommentRepository commentRepository;
 
-    public Comment getCommentById(Long id) {
-        return commentRepository.findById(id).orElse(null);
-    }
+  public Comment createComment(Comment comment) {
+    return commentRepository.save(comment);
+  }
 
-    public void deleteComment(Long id) {
-        commentRepository.deleteById(id);
-    }
+  public Comment getCommentById(Long id) {
+    return commentRepository.findById(id).orElse(null);
+  }
 
-    public List<Comment> allComments() {
-        return commentRepository.findAll();
-    }
+  public void deleteComment(Long id) {
+    commentRepository.deleteById(id);
+  }
 
-    public Comment updateComment(Comment updatedComment) {
-        return commentRepository.findById(updatedComment.getId())
-                .map(existingComment -> {
-                    existingComment.setUsername(updatedComment.getUsername());
-                    existingComment.setContent(updatedComment.getContent());
-                    return commentRepository.save(existingComment);
-                })
-                .orElseThrow(() -> new IllegalArgumentException("Комментарий с ID: " + updatedComment.getId() + " не найден."));
-    }
+  public List<Comment> allComments() {
+    return commentRepository.findAll();
+  }
+
+  public Comment updateComment(Comment updatedComment) {
+    return commentRepository.findById(updatedComment.getId())
+        .map(existingComment -> {
+          existingComment.setUsername(updatedComment.getUsername());
+          existingComment.setContent(updatedComment.getContent());
+          return commentRepository.save(existingComment);
+        })
+        .orElseThrow(() -> new IllegalArgumentException(
+            "Комментарий с ID: " + updatedComment.getId() + " не найден."));
+  }
 }

@@ -12,21 +12,21 @@ import static org.mockito.Mockito.*;
 
 class PostServiceTest {
 
-    @Test
-    void getPostById_ExistingId_ReturnsPost() {
-        // Arrange
-        Long postId = 1L;
-        Post post = new Post();
-        post.setId(postId);
+  @Test
+  void getPostById_ExistingId_ReturnsPost() {
+    // Arrange
+    Long postId = 1L;
+    Post post = new Post();
+    post.setId(postId);
 
-        PostRepository postRepository = Mockito.mock(PostRepository.class);
-        when(postRepository.findById(postId)).thenReturn(Optional.of(post));
+    PostRepository postRepository = Mockito.mock(PostRepository.class);
+    when(postRepository.findById(postId)).thenReturn(Optional.of(post));
 
-        PostService postService = new PostService(postRepository);
+    PostService postService = new PostService(postRepository);
 
-        Post result = postService.getPostById(postId);
+    Post result = postService.getPostById(postId);
 
-        assertEquals(post, result);
-    }
+    assertEquals(post, result);
+  }
 
 }
