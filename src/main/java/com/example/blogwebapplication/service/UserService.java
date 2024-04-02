@@ -42,6 +42,7 @@ public class UserService {
         .orElseThrow(() -> new IllegalArgumentException("User with id: " + id + " not found."));
     exisitingUser.setUsername(user.getUsername());
     exisitingUser.setEmail(user.getEmail());
+    exisitingUser.setComments(user.getComments());
     return userRepository.save(exisitingUser);
   }
 

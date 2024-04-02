@@ -19,12 +19,6 @@ public class PostService {
     return postRepository.save(post);
   }
 
-  public Post createPostWithUser(Post post, User user) {
-    Objects.requireNonNull(user, "User cannot be null");
-    post.setUser(user);
-    return postRepository.save(post);
-  }
-
   public Post getPostById(Long id) {
     return postRepository.findById(id).orElse(null);
   }

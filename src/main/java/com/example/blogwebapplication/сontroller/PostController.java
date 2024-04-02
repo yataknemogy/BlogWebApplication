@@ -16,9 +16,9 @@ public class PostController {
 
   @PostMapping("/add")
   public ResponseEntity<?> createPost(@RequestBody Post post) {
-    if (post.getUser() == null) {
+   /* if (post.getUser() == null) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Пользователь должен быть указан!");
-    }
+    } */
     Post createdPost = postService.createPost(post);
     return ResponseEntity.status(HttpStatus.CREATED).body(createdPost);
   }
