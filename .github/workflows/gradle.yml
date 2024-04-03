@@ -54,7 +54,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: blog-app
-        path: build/libs/blog-app.jar
+        path: build\libs\blog-app.jar
 
   dependency-submission:
 
