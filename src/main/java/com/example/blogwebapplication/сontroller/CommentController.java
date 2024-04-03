@@ -1,46 +1,43 @@
-package com.example.blogwebapplication.сontroller;
+package com.example.blogwebapplication.controller;
 
 import com.example.blogwebapplication.model.Comment;
 import com.example.blogwebapplication.service.CommentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/comments")
 public class CommentController {
 
-  private final CommentService commentService;
+    private final CommentService commentService;
 
-  @Autowired
-  public CommentController(CommentService commentService) {
-    this.commentService = commentService;
-  }
+    public CommentController(CommentService commentService) {
+        this.commentService = commentService;
+    }
 
-  @PostMapping("/createComment")
-  public Comment createComment(@RequestBody Comment comment) {
-    return commentService.createComment(comment);
-  }
+    @PostMapping("/createComment")
+    public Mono<Comment> createComment(@RequestBody Comment comment) {
+        return commentService.createComment(comment);
+    }
 
-  @GetMapping("/comment/{id}")
-  public Comment getCommentById(@PathVariable Long id) {
-    return commentService.getCommentById(id);
-  }
+    @GetMapping("/comment/{id}")
+    public Mono<Comment> getCommentById(@PathVariable Long id) {
+        return commentService.getCommentById(id);
+    }
 
-  @DeleteMapping("/delete/{id}")
-  public void deleteComment(@PathVariable Long id) {
-    commentService.deleteComment(id);
-  }
+    @DeleteMapping("/delete/{id}")
+    public Mono<Void> deleteComment(@PathVariable Long id) {
+        return commentService.deleteComment(id);
+    }
 
-  @GetMapping("/comments")
-  public List<Comment> getAllComments() {
-    return commentService.allComments();
-  }
+    @GetMapping("/comments")
+    public Flux<Comment> getAllComments() {
+        return commentService.allComments();
+    }
 
-  @PutMapping("/update")
-  public Comment updateComment(@RequestBody Comment comment) {
-    return commentService.updateComment(comment);
-  }
+    @PutMapping("/update")
+    public Mono<Comment> updateComment(@RequestBody Comment comment) {
+        return commentService.updateComment(comment);
+    }
 }
-

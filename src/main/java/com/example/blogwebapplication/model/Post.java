@@ -13,16 +13,16 @@ import java.util.Set;
 @Setter
 public class Post {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-  private String title;
-  private String content;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String title;
+    private String content;
 
-  @ManyToOne
-  @JoinColumn(name = "userId", nullable = false)
-  private User user;
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    private User user;
 
-  @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-  private Set<Comment> comments = new HashSet<>();
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private Set<Comment> comments = new HashSet<>();
 }

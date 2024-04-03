@@ -2,57 +2,59 @@ package com.example.blogwebapplication.service;
 
 import com.example.blogwebapplication.model.User;
 import com.example.blogwebapplication.repository.UserRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import reactor.core.publisher.Mono;
 
 @Service
-@AllArgsConstructor
 public class UserService {
 
-  private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
-  public User createUser(User user) {
-    return userRepository.save(user);
-  }
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-  public User getUserById(Long id) {
-    return userRepository.findById(id).orElse(null);
-  }
+    public Mono<User> createUser(User user) {
+        return userRepository.save(user);
+    }
 
-  public User deleteUser(Long id) {
-    userRepository.deleteById(id);
-    return null;
-  }
+    public Mono<User> getUserById(Long id) {
+        return userRepository.findById(id);
+    }
 
-  public List<User> allUsers() {
-    return userRepository.findAll();
-  }
+    public Mono<Void> deleteUser(Long id) {
+        return userRepository.deleteById(id);
+    }
 
-  public User updateUser(Long id, User user) {
-//        return userRepository.findById(id)
-//                .map(existingUser -> {
-//                    existingUser.setUsername(user.getUsername());
-//                    existingUser.setEmail(user.getEmail());
-//                    return userRepository.save(existingUser);
-//                })
-//                .orElseThrow(() -> new IllegalArgumentException("Пользователь с ID: " + id + " не найден."));
-    User exisitingUser = userRepository.findById(id)
-        .orElseThrow(() -> new IllegalArgumentException("User with id: " + id + " not found."));
-    exisitingUser.setUsername(user.getUsername());
-    exisitingUser.setEmail(user.getEmail());
-    exisitingUser.setComments(user.getComments());
-    return userRepository.save(exisitingUser);
-  }
+    public Mono<User> updateUser(Long id, User user) {
+        return userRepository.findById(id)
+                .flatMap(existingUser -> {
+                    existingUser.setUsername(user.getUsername());
+                    existingUser.setEmail(user.getEmail());
+                    // Set other properties as needed
+                    return userRepository.save(existingUser);
+                });
+    }
 
-  public void subscribe(User user, User targetUser) {
-    user.subscribe(targetUser);
-    userRepository.save(user);
-  }
+    public Mono<Void> subscribe(Long id, Long targetUserId) {
+        return userRepository.findById(id)
+                .flatMap(user -> userRepository.findById(targetUserId)
+                        .map(targetUser -> {
+                            user.subscribe(targetUser);
+                            return user;
+                        }))
+                .flatMap(userRepository::save)
+                .then();
+    }
 
-  public void unSubscribe(User user, User targerUser) {
-    user.unSubscribe(targerUser);
-    userRepository.save(user);
-  }
+    public Mono<Void> unSubscribe(Long id, Long targetUserId) {
+        return userRepository.findById(id)
+                .flatMap(user -> userRepository.findById(targetUserId)
+                        .map(targetUser -> {
+                            user.unsubscribe(targetUser);
+                            return user;
+                        }))
+                .flatMap(userRepository::save)
+                .then();
+    }
 }

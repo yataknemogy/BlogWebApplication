@@ -2,41 +2,43 @@ package com.example.blogwebapplication.service;
 
 import com.example.blogwebapplication.model.Comment;
 import com.example.blogwebapplication.repository.CommentRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
-@AllArgsConstructor
 public class CommentService {
 
-  private final CommentRepository commentRepository;
+    private final CommentRepository commentRepository;
 
-  public Comment createComment(Comment comment) {
-    return commentRepository.save(comment);
-  }
+    public CommentService(CommentRepository commentRepository) {
+        this.commentRepository = commentRepository;
+    }
 
-  public Comment getCommentById(Long id) {
-    return commentRepository.findById(id).orElse(null);
-  }
+    public Mono<Comment> createComment(Comment comment) {
+        return commentRepository.save(comment);
+    }
 
-  public void deleteComment(Long id) {
-    commentRepository.deleteById(id);
-  }
+    public Mono<Comment> getCommentById(Long id) {
+        return commentRepository.findById(id);
+    }
 
-  public List<Comment> allComments() {
-    return commentRepository.findAll();
-  }
+    public Mono<Void> deleteComment(Long id) {
+        return commentRepository.deleteById(id);
+    }
 
-  public Comment updateComment(Comment updatedComment) {
-    return commentRepository.findById(updatedComment.getId())
-        .map(existingComment -> {
-          existingComment.setUsername(updatedComment.getUsername());
-          existingComment.setContent(updatedComment.getContent());
-          return commentRepository.save(existingComment);
-        })
-        .orElseThrow(() -> new IllegalArgumentException(
-            "Комментарий с ID: " + updatedComment.getId() + " не найден."));
-  }
+    public Flux<Comment> allComments() {
+        return commentRepository.findAll();
+    }
+
+    public Mono<Comment> updateComment(Comment updatedComment) {
+        return commentRepository.findById(updatedComment.getId())
+                .flatMap(existingComment -> {
+                    existingComment.setUsername(updatedComment.getUsername());
+                    existingComment.setContent(updatedComment.getContent());
+                    return commentRepository.save(existingComment);
+                })
+                .switchIfEmpty(Mono.error(new IllegalArgumentException(
+                        "Comment with ID: " + updatedComment.getId() + " not found.")));
+    }
 }

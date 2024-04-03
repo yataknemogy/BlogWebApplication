@@ -1,12 +1,9 @@
 package com.example.blogwebapplication.repository;
 
 import com.example.blogwebapplication.model.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-
-  @Override
-  Optional<User> findById(Long id);
-}
+@Repository
+public interface UserRepository extends ReactiveCrudRepository<User, Long> {}

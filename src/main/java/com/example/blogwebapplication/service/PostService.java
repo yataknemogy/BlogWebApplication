@@ -1,43 +1,41 @@
 package com.example.blogwebapplication.service;
 
 import com.example.blogwebapplication.model.Post;
-import com.example.blogwebapplication.model.User;
 import com.example.blogwebapplication.repository.PostRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Objects;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 @AllArgsConstructor
 public class PostService {
 
-  private final PostRepository postRepository;
+    private final PostRepository postRepository;
 
-  public Post createPost(Post post) {
-    return postRepository.save(post);
-  }
+    public Mono<Post> createPost(Post post) {
+        return postRepository.save(post);
+    }
 
-  public Post getPostById(Long id) {
-    return postRepository.findById(id).orElse(null);
-  }
+    public Mono<Post> getPostById(Long id) {
+        return postRepository.findById(id);
+    }
 
-  public void deletePost(Long id) {
-    postRepository.deleteById(id);
-  }
+    public Mono<Void> deletePost(Long id) {
+        return postRepository.deleteById(id);
+    }
 
-  public List<Post> getAllPosts() {
-    return postRepository.findAll();
-  }
+    public Flux<Post> getAllPosts() {
+        return postRepository.findAll();
+    }
 
-  public Post updatePost(Long id, Post updatedPost) {
-    return postRepository.findById(id)
-        .map(existingPost -> {
-          existingPost.setTitle(updatedPost.getTitle());
-          existingPost.setContent(updatedPost.getContent());
-          return postRepository.save(existingPost);
-        })
-        .orElseThrow(() -> new IllegalArgumentException("Пост с ID: " + id + " не найден."));
-  }
+    public Mono<Post> updatePost(Long id, Post updatedPost) {
+        return postRepository.findById(id)
+                .flatMap(existingPost -> {
+                    existingPost.setTitle(updatedPost.getTitle());
+                    existingPost.setContent(updatedPost.getContent());
+                    return postRepository.save(existingPost);
+                })
+                .switchIfEmpty(Mono.error(new IllegalArgumentException("Пост с ID: " + id + " не найден.")));
+    }
 }
