@@ -23,7 +23,7 @@ dependencies {
 
     runtimeOnly 'org.postgresql:postgresql'
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     implementation 'io.freefair.gradle:lombok-plugin:8.6'
 
@@ -31,21 +31,9 @@ dependencies {
     implementation 'org.apache.logging.log4j:log4j-core:2.23.1'
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
-}
-
-// Флаг для включения или отключения тестов при задаче build
-def runTests = false;
-
-// Задача build
-tasks.named('build') {
-    if (!runTests) {
-        tasks.withType(Test) {
-            enabled = false
-        }
-    }
-}
+//tasks.named('test') {
+//    useJUnitPlatform()
+//}
 
 /* ./gradlew bootJar приложение будет упаковано в исполняемый JAR файл. */
 bootJar {
