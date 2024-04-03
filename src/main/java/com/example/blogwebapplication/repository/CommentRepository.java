@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
 
-    @Override
-    Optional<Comment> findById(Long id);
+  @Override
+  Optional<Comment> findById(Long id);
 }

@@ -9,7 +9,10 @@ import java.util.Optional;
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-    @Override
-    Optional<Post> findById(Long id);
+  @Override
+  <S extends Post> S save(S entity);
+
+  @Override
+  Optional<Post> findById(Long id);
 
 }

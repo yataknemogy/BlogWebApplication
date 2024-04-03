@@ -1,4 +1,4 @@
-package com.example.blogwebapplication.controller;
+package com.example.blogwebapplication.сontroller;
 
 import com.example.blogwebapplication.model.User;
 import com.example.blogwebapplication.service.UserService;
@@ -11,50 +11,56 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 @AllArgsConstructor
 public class UserController {
-    private UserService userService;
 
-    @PostMapping("/add")
-    public User addUser(@RequestBody User user){
-        return userService.createUser(user);
-    }
+  private UserService userService;
 
-    @DeleteMapping("/delete/{id}")
-    public User deleteUserById(@PathVariable Long id){
-        return userService.deleteUser(id);
-    }
+  @PostMapping("/add")
+  public User addUser(@RequestBody User user) {
+    return userService.createUser(user);
+  }
 
-    @PutMapping("/update/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User updated){
-        return userService.updateUser(id, updated);
-    }
+  @DeleteMapping("/delete/{id}")
+  public User deleteUserById(@PathVariable Long id) {
+    return userService.deleteUser(id);
+  }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        User user = userService.getUserById(id);
-        if (user != null) {
-            return new ResponseEntity<>(user, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+  /* @PutMapping("/update/{id}")
+   public User updateUser(@PathVariable Long id, @RequestBody User updated){
+       return userService.updateUser(id, updated);
+   } */
+  @PutMapping("/update/{id}")
+  public User updateUser(@PathVariable Long id, @RequestBody User updateUser) {
+    User updatedUser = userService.updateUser(id, updateUser);
+    return updatedUser;
+  }
 
-    @PostMapping("/subscribe")
-    public void subscribe(@RequestParam Long id, @RequestParam Long targetUserId) {
-        User user = userService.getUserById(id);
-        User targetUser = userService.getUserById(targetUserId);
-        if (user != null && targetUser != null) {
-            user.subscribe(targetUser);
-            userService.updateUser(id, user);
-        }
+  @GetMapping("/{id}")
+  public ResponseEntity<User> getUserById(@PathVariable Long id) {
+    User user = userService.getUserById(id);
+    if (user != null) {
+      return new ResponseEntity<>(user, HttpStatus.OK);
+    } else {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+  }
 
-    @PostMapping("/unsubscribe")
-    public void unsubscribe(@RequestParam Long id, @RequestParam Long targetUserId) {
-        User user = userService.getUserById(id);
-        User targetUser = userService.getUserById(targetUserId);
-        if (user != null && targetUser != null) {
-            user.unsubscribe(targetUser);
-            userService.updateUser(id, user);
-        }
+  @PostMapping("/subscribe")
+  public void subscribe(@RequestParam Long id, @RequestParam Long targetUserId) {
+    User user = userService.getUserById(id);
+    User targetUser = userService.getUserById(targetUserId);
+    if (user != null && targetUser != null) {
+      user.subscribe(targetUser);
+      userService.updateUser(id, user);
     }
+  }
+
+  @PostMapping("/unsubscribe")
+  public void unSubscribe(@RequestParam Long id, @RequestParam Long targetUserId) {
+    User user = userService.getUserById(id);
+    User targetUser = userService.getUserById(targetUserId);
+    if (user != null && targetUser != null) {
+      user.unSubscribe(targetUser);
+      userService.updateUser(id, user);
+    }
+  }
 }

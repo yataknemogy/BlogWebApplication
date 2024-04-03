@@ -12,23 +12,21 @@ import static org.mockito.Mockito.*;
 
 class UserServiceTest {
 
-    @Test
-    void getUserById_ExistingId_ReturnsUser() {
-        // Arrange
-        Long userId = 1L;
-        User user = new User();
-        user.setId(userId);
+  @Test
+  void getUserById_ExistingId_ReturnsUser() {
+    // Arrange
+    Long userId = 1L;
+    User user = new User();
+    user.setId(userId);
 
-        UserRepository userRepository = Mockito.mock(UserRepository.class);
-        when(userRepository.findById(userId)).thenReturn(Optional.of(user));
+    UserRepository userRepository = Mockito.mock(UserRepository.class);
+    when(userRepository.findById(userId)).thenReturn(Optional.of(user));
 
-        UserService userService = new UserService(userRepository);
+    UserService userService = new UserService(userRepository);
 
-        // Act
-        User result = userService.getUserById(userId);
+    User result = userService.getUserById(userId);
 
-        // Assert
-        assertEquals(user, result);
-    }
+    assertEquals(user, result);
+  }
 
 }

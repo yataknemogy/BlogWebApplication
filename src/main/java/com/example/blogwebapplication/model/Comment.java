@@ -20,12 +20,9 @@ public class Comment {
     private String content;
     private Date date;
 
-//    @ManyToOne
-//    @JoinColumn(name = "postId", nullable = false)
-//    private Post postComment;
     @ManyToOne
-    @JoinColumn(name = "post_id", nullable = false) // Указываем название колонки, которая ссылается на пост
-    private Post post; // Добавляем поле для хранения ссылки на пост
+    @JoinColumn(name = "post_id", nullable = false)
+    private Post post;
 
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)

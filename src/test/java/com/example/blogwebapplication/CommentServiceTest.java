@@ -12,23 +12,21 @@ import static org.mockito.Mockito.*;
 
 class CommentServiceTest {
 
-    @Test
-    void getCommentById_ExistingId_ReturnsComment() {
-        // Arrange
-        Long commentId = 1L;
-        Comment comment = new Comment();
-        comment.setId(commentId);
+  @Test
+  void getCommentById_ExistingId_ReturnsComment() {
+    // Arrange
+    Long commentId = 1L;
+    Comment comment = new Comment();
+    comment.setId(commentId);
 
-        CommentRepository commentRepository = Mockito.mock(CommentRepository.class);
-        when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
+    CommentRepository commentRepository = Mockito.mock(CommentRepository.class);
+    when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
 
-        CommentService commentService = new CommentService(commentRepository);
+    CommentService commentService = new CommentService(commentRepository);
 
-        // Act
-        Comment result = commentService.getCommentById(commentId);
+    Comment result = commentService.getCommentById(commentId);
 
-        // Assert
-        assertEquals(comment, result);
-    }
+    assertEquals(comment, result);
+  }
 
 }

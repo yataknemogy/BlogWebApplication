@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Override
-    Optional<User> findById(Long id);
+  @Override
+  Optional<User> findById(Long id);
 }
