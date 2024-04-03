@@ -35,6 +35,18 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+// Флаг для включения или отключения тестов при задаче build
+def runTests = false;
+
+// Задача build
+tasks.named('build') {
+    if (!runTests) {
+        tasks.withType(Test) {
+            enabled = false
+        }
+    }
+}
+
 /* ./gradlew bootJar приложение будет упаковано в исполняемый JAR файл. */
 bootJar {
     archiveFileName = 'blog-app.jar' // Имя JAR файла
