@@ -1,6 +1,6 @@
 # 블로그 웹 애플리케이션
 
-[RU](../README.md) | [EN](README_EN.MD) | [JP](README_JP.MD) | [DE](README_DE.MD) | [CH](README_CH.MD)
+[RU](../README.md) | [EN](README_EN.MD) | [JP](README_JP.MD) | [DE](README_DE.MD) | [CH](README_CH.MD) | [KR](README_KR.MD)
 
 이 웹 애플리케이션은 사용자가 게시물을 작성하고 관리할 수 있는 블로그를 생성하는 데 사용됩니다. 사용자는 게시물을 작성하고 댓글을 남기며 다른 사용자의 블로그를 구독하고 자신의 프로필을 관리할 수 있습니다.
 

@@ -1,6 +1,6 @@
 # ブログ用のWebアプリケーション
 
-[RU](../README.md) | [EN](README_EN.MD) | [DE](README_DE.MD) | [KR](README_KR.MD) | [CH](README_CH.MD)
+[RU](../README.md) | [EN](README_EN.MD) | [JP](README_JP.MD) | [DE](README_DE.MD) | [CH](README_CH.MD) | [KR](README_KR.MD)
 
 このWebアプリケーションは、ユーザーが投稿を作成し、コメントを追加し、他のユーザーのブログを購読し、自分のプロファイルを管理できるブログの作成と管理を目的としています。
 
