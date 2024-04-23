@@ -1,5 +1,7 @@
 # 博客网络应用
 
+[RU](../README.md) | [EN](README_EN.MD) | [JP](README_JP.MD) | [DE](README_DE.MD) | [KR](README_KR.MD)
+
 这个网络应用旨在创建和管理博客，用户可以创建帖子、评论，订阅其他用户的博客并管理自己的个人资料。
 
 ## 项目设置
@@ -35,5 +37,3 @@
 
 这是开发博客网络应用所执行的步骤的简要概述。
 
-
-[RU](../README.md) | [EN](README_EN.MD) | [JP](README_JP.MD) | [DE](README_DE.MD) | [KR](README_KR.MD)

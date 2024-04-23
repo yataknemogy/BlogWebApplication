@@ -1,5 +1,7 @@
 # Webanwendung für einen Blog
 
+[RU](../README.md) | [EN](README_EN.MD) | [JP](README_JP.MD) | [CH](README_CH.MD) | [KR](README_KR.MD)
+
 Diese Webanwendung ist für das Erstellen und Verwalten eines Blogs gedacht, in dem Benutzer Beiträge erstellen, kommentieren, sich für die Blogs anderer Benutzer anmelden und ihr eigenes Profil verwalten können.
 
 ## Projekteinrichtung
@@ -34,5 +36,3 @@ Diese Webanwendung ist für das Erstellen und Verwalten eines Blogs gedacht, in 
 - Schutz vor Cross-Site Request Forgery (CSRF) und anderen Angriffen wurde implementiert.
 
 Dies ist ein kurzer Überblick über die Schritte bei der Entwicklung der Webanwendung für den Blog.
-
-[RU](../README.md) | [EN](README_EN.MD) | [JP](README_JP.MD) | [CH](README_CH.MD) | [KR](README_KR.MD)

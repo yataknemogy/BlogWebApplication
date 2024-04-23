@@ -1,5 +1,7 @@
 # Web Application for Blog
 
+[RU](../README.md) | [JP](README_JP.MD) | [DE](README_DE.MD) | [CH](README_CH.MD) | [KR](README_KR.MD)
+
 This web application is designed for creating and managing a blog, where users can create posts, comment on them, subscribe to other users' blogs, and manage their own profiles.
 
 ## Project Setup
@@ -34,5 +36,3 @@ This web application is designed for creating and managing a blog, where users c
 - Implemented protection against Cross-Site Request Forgery (CSRF) and other types of attacks.
 
 This is a brief overview of the steps taken in developing the web application for the blog.
-
-[RU](../README.md) | [JP](README_JP.MD) | [DE](README_DE.MD) | [CH](README_CH.MD) | [KR](README_KR.MD)
