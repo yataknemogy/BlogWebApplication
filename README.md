@@ -1,6 +1,6 @@
 # Веб-приложение для блога
 
-[RU](README.md) | [EN](docs/README_EN.MD) | [JP](docs/README_JP.MD) | [DE](docs/README_DE.MD) | [CH](docs/README_CH.MD) | [KR](docs/README_KR.MD)
+[RU](README.md) | [EN](docs/README_EN.MD) | [FR](docs/README_FR.MD) |  [JP](docs/README_JP.MD) | [DE](docs/README_DE.MD) | [CH](docs/README_CH.MD) | [KR](docs/README_KR.MD)
 
 Это веб-приложение предназначено для создания и управления блогом, где пользователи могут создавать посты, комментировать их, подписываться на блоги других пользователей и управлять своим профилем.
 
