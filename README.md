@@ -35,4 +35,4 @@
 
 Это краткий обзор выполненных шагов при разработке веб-приложения для блога.
 
-[EN](docs/README_EN.MD) | [JP](docs/README_JP.MD) | [DE](docs/README_DE.MD)
+[RU](README.md) | [EN](docs/README_EN.MD) | [JP](docs/README_JP.MD) | [DE](docs/README_DE.MD) | [CH](docs/README_CH.MD) | [KR](docs/README_KR.MD)

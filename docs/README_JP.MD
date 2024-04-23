@@ -33,4 +33,4 @@
 - ユーザー認証と認可により、アプリケーションのセキュリティを確保しました。
 - クロスサイトリクエストフォージェリ（CSRF）やその他の攻撃からの保護を
 
-[EN](README_EN.MD) | [DE](README_DE.MD)
+[RU](../README.md) | [EN](README_EN.MD) | [DE](README_DE.MD) | [KR](README_KR.MD) | [CH](README_CH.MD)

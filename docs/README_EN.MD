@@ -35,4 +35,4 @@ This web application is designed for creating and managing a blog, where users c
 
 This is a brief overview of the steps taken in developing the web application for the blog.
 
-[JP](README_JP.MD) | [DE](README_DE.MD)
+[RU](../README.md) | [JP](README_JP.MD) | [DE](README_DE.MD) | [CH](README_CH.MD) | [KR](README_KR.MD)

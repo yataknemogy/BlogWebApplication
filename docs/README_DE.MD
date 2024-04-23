@@ -35,4 +35,4 @@ Diese Webanwendung ist für das Erstellen und Verwalten eines Blogs gedacht, in 
 
 Dies ist ein kurzer Überblick über die Schritte bei der Entwicklung der Webanwendung für den Blog.
 
-[EN](README_EN.MD) | [JP](README_JP.MD)
+[RU](../README.md) | [EN](README_EN.MD) | [JP](README_JP.MD) | [CH](README_CH.MD) | [KR](README_KR.MD)
