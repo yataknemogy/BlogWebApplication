@@ -42,6 +42,6 @@ By contributing to this project, you agree to license your contributions under t
 
 ## Contact
 
-If you have any questions or need further assistance, feel free to reach out to us via [create an issue](https://github.com/yataknemogy/BlogWebApplication/issues/new).
+If you have any questions or need further assistance, feel free to reach out to us via [email](mailto:efim@yataknemogy.com) or [create an issue](https://github.com/yataknemogy/BlogWebApplication/issues/new).
 
 Happy contributing!
