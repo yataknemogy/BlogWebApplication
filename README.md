@@ -1,6 +1,6 @@
 # Web Application for Blog
 
-[RU](docs/README.md) | [FR](docs/README_FR.MD) |  [JP](docs/README_JP.MD) | [DE](docs/README_DE.MD) | [CH](docs/README_CH.MD) | [KR](docs/README_KR.MD)
+[RU](docs/README_RU.MD) | [FR](docs/README_FR.MD) |  [JP](docs/README_JP.MD) | [DE](docs/README_DE.MD) | [CH](docs/README_CH.MD) | [KR](docs/README_KR.MD)
 
 This web application is designed for creating and managing a blog, where users can create posts, comment on them, subscribe to other users' blogs, and manage their own profiles.
 
