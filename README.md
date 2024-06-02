@@ -1,39 +1,38 @@
-# Веб-приложение для блога
+# Web Application for Blog
 
-[RU](README.md) | [EN](docs/README_EN.MD) | [FR](docs/README_FR.MD) |  [JP](docs/README_JP.MD) | [DE](docs/README_DE.MD) | [CH](docs/README_CH.MD) | [KR](docs/README_KR.MD)
+[EN](../README.md) | [RU](README_RU.MD) [FR](README_FR.MD) | [JP](README_JP.MD) | [DE](README_DE.MD) | [CH](README_CH.MD) | [KR](README_KR.MD)
 
-Это веб-приложение предназначено для создания и управления блогом, где пользователи могут создавать посты, комментировать их, подписываться на блоги других пользователей и управлять своим профилем.
+This web application is designed for creating and managing a blog, where users can create posts, comment on them, subscribe to other users' blogs, and manage their own profiles.
 
-## Настройка проекта
+## Project Setup
 
-- Создан новый проект Spring Boot.
-- Настроены зависимости для работы с веб-приложениями, базой данных и авторизацией.
-- Создана база данных для хранения информации о пользователях, постах и комментариях.
+- Created a new Spring Boot project.
+- Configured dependencies for web applications, databases, and authentication.
+- Created a database to store information about users, posts, and comments.
 
-## Модель данных
+## Data Model
 
-- Определена структура данных для пользователей, постов и комментариев.
-- Созданы Java-классы, соответствующие этой структуре данных, используя аннотации JPA для отображения на таблицы в базе данных.
+- Defined the data structure for users, posts, and comments.
+- Created Java classes corresponding to this data structure, using JPA annotations to map to tables in the database.
 
-## Контроллеры
+## Controllers
 
-- Созданы контроллеры для обработки HTTP-запросов, таких как создание постов, комментариев, аутентификация пользователей и т.д.
-- Определены методы контроллеров для выполнения операций с данными, таких как создание нового поста, добавление комментария и т.д.
+- Created controllers to handle HTTP requests, such as creating posts, comments, user authentication, etc.
+- Defined controller methods to perform operations on data, such as creating a new post, adding a comment, etc.
 
-## Сервисы
+## Services
 
-- Реализованы сервисы для выполнения бизнес-логики приложения, такие как сохранение постов, комментариев, аутентификация пользователей и т.д.
-- Включена логика для подписки на блоги других пользователей и управления профилем пользователя.
+- Implemented services to perform business logic of the application, such as saving posts, comments, user authentication, etc.
+- Included logic for subscribing to other users' blogs and managing user profiles.
 
-## Представления
+## Views
 
-- Созданы HTML-шаблоны для отображения пользовательского интерфейса, такие как страницы для просмотра постов, добавления комментариев, регистрации и входа в систему.
-- Использован Thymeleaf для интеграции Java-кода с HTML.
+- Created HTML templates to display the user interface, such as pages for viewing posts, adding comments, registration, and login.
+- Used Thymeleaf for integrating Java code with HTML.
 
-## Безопасность
+## Security
 
-- Обеспечена безопасность приложения с помощью аутентификации и авторизации пользователей.
-- Реализована защита от межсайтовых запросов (CSRF) и других типов атак.
+- Ensured the security of the application through user authentication and authorization.
+- Implemented protection against Cross-Site Request Forgery (CSRF) and other types of attacks.
 
-Это краткий обзор выполненных шагов при разработке веб-приложения для блога.
-
+This is a brief overview of the steps taken in developing the web application for the blog.
